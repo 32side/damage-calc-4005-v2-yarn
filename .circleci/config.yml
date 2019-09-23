@@ -22,12 +22,12 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       - run: mkdir junit
-			- run:
-				commsnd: node_modules/.bin/mocha test --reporter mocha-junit-reporter
-				environmeent:
-					MOCHA_FILE: ./junit/test-results.xml
-				when: always
-			- store_test_results:
-				path: ./junit
-			- store_artifacts:
-				path: ./junit
+      - run:
+          commsnd: node_modules/.bin/mocha test --reporter mocha-junit-reporter
+          environmeent:
+            MOCHA_FILE: ./junit/test-results.xml
+          when: always
+      - store_test_results:
+          path: ./junit
+      - store_artifacts:
+          path: ./junit
